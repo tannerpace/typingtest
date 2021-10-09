@@ -52,7 +52,6 @@ button {
   display: block;
   margin: 0 auto;
   border: none;
-  background: #a80020;
   background: #009af3;
 
   text-transform: uppercase;
@@ -63,6 +62,9 @@ button {
 h1 {
   font-size: 3rem;
   text-align: center;
+  background: -webkit-linear-gradient(rgb(36, 19, 19), #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 textarea {
