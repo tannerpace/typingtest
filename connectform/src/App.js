@@ -1,24 +1,19 @@
-
-import './App.css';
-import React, { useState, useEffect } from 'react'
-
+import "./App.css";
+import React, { useState, useEffect } from "react";
 
 function App() {
-  const [wordCount, setWordCount] = useState('0')
-  const [value, setvalue] = useState({})
-
+  const [wordCount, setWordCount] = useState("0");
+  const [value, setvalue] = useState("");
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setvalue((oldValue) => (value))
-  }
+    const { name, value } = e.target;
+    setvalue((oldValue) => value);
+  };
 
-  let str = value
-  const howMany = () => str.match(/(\w+)/g).length;
-
+  // run match on the input value and then get length which is how many
   const handleSubmit = () => {
-    setWordCount(howMany)
-  }
+    setWordCount(value.match(/(\w+)/g).length);
+  };
 
   return (
     <div className="App">
@@ -27,7 +22,7 @@ function App() {
       <textarea onChange={handleChange} />
       <h4>Time Remaining</h4>
       <button onClick={handleSubmit}>Start</button>
-      <h1>{wordCount}</h1>
+      <h1>Word Count : {wordCount}</h1>
     </div>
   );
 }
