@@ -63,6 +63,8 @@ function App() {
     return <button className="placeHolder">Im a placeholder</button>
   }
 
+  const hint = !isStarted ? "Click the START button!" : "Start Typing Now!"
+
   return (
     <div className="App">
       {!isStarted ? <h1>Typing Test</h1> : <h1>Start Typing!</h1>}
@@ -77,7 +79,12 @@ function App() {
       {!isStarted ? <StartButton /> : <StopButton />}
       {!isStarted ? <ResetButton /> : <PlaceHoldersButton />}
 
-      <textarea id="test" onChange={handleChange} disabled={!isStarted} />
+      <textarea
+        id="test"
+        onChange={handleChange}
+        disabled={!isStarted}
+        placeholder={hint}
+      />
 
       <h2>Word Count : {wordCount}</h2>
     </div>
