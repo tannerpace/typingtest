@@ -1,13 +1,14 @@
 import "./App.css"
 import React, { useState, useEffect } from "react"
-import Timer from "./components/Timer"
 import SimpleTimer from "./components/Timer/SimpleTimer"
+import MyTypeTest from "./components/MyTypeTest"
 
 function App() {
   const [wordCount, setWordCount] = useState("0")
   const [value, setValue] = useState("")
   const [isStarted, setIsStarted] = useState(false)
   const [seconds, setSeconds] = useState(60)
+  const [stuff, setStuff] = useState("")
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -65,9 +66,11 @@ function App() {
 
   const hint = !isStarted ? "Click the START button!" : "Start Typing Now!"
 
+  console.log(stuff)
   return (
     <div className="App">
       {!isStarted ? <h1>Typing Test</h1> : <h1>Start Typing!</h1>}
+      <MyTypeTest isStarted={isStarted} />
       <SimpleTimer
         seconds={`${seconds}`}
         isStarted={isStarted}
