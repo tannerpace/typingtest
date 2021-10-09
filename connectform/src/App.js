@@ -23,10 +23,11 @@ function App() {
   return (
     <div className="App">
       <h1>Typing Test</h1>
+      <h2>Timer : </h2>
+      <Timer initialSeconds={5} initialMinute={4} />
       <textarea onChange={handleChange} />
       <button onClick={handleSubmit}>Start</button>
-      <h1>Timer : </h1>
-      <Timer initialSeconds={5} initialMinute={4} />
+
       <h1>Word Count : {wordCount}</h1>
     </div>
   );

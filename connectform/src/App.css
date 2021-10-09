@@ -1,12 +1,46 @@
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+  margin-block: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    0%,
+    rgba(148, 187, 233, 1) 0% rgba(238, 174, 202, 1) 100%
+  );
+}
+
 html,
 body {
-  background: black;
-  color: #11dfc3;
+  background: linear-gradient(to top right, #33ccff1e 10%, #ff99cc36 95%)
+    no-repeat;
+  color: #000000;
   margin: 0;
   padding: 0;
   padding-top: 10px;
   font-family: "Press Start 2P", cursive;
   text-align: center;
+  height: 100vh;
 }
 
 body {
@@ -20,12 +54,14 @@ button {
   border: none;
   background: #a80020;
   background: #009af3;
-  padding: 10px 20px;
+
   text-transform: uppercase;
+  height: 4vh;
+  border-radius: 30%;
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 3rem;
   text-align: center;
 }
 
@@ -33,9 +69,11 @@ textarea {
   font-family: "Press Start 2P", cursive;
   border: 3px solid black;
   width: 90%;
+  resize: none;
   margin: 0 auto;
   outline: none;
-  height: 200px;
-  background: #c358c7;
-  padding: 10px;
+  height: 20vh;
+  background: linear-gradient(to top right, #d202f61e 10%, #ff660036 95%);
+  padding: 1%;
+  border-radius: 50px;
 }
