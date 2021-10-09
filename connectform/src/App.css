@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=VT323&display=swap");
 ::-webkit-scrollbar {
   width: 20px;
 }
@@ -22,18 +24,20 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(238, 174, 202);
   background: radial-gradient(
     circle,
     0%,
-    rgba(148, 187, 233, 1) 0% rgba(238, 174, 202, 1) 100%
+    rgba(148, 187, 233, 1) 53% rgba(238, 174, 202, 1) 70%
   );
 }
 
 html,
 body {
-  background: linear-gradient(to top right, #33ccff1e 10%, #ff99cc36 95%)
-    no-repeat;
+  background: radial-gradient(
+    circle,
+    0%,
+    rgba(148, 187, 233, 1) 0% rgba(238, 174, 202, 1) 100%
+  );
   color: #000000;
   margin: 0;
   padding: 0;
@@ -50,32 +54,53 @@ body {
 button {
   font-family: "Press Start 2P", cursive;
   display: block;
-  margin: 0 auto;
-  border: none;
-  background: #009af3;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 
+  border: none;
+  background: #009af37c;
   text-transform: uppercase;
-  height: 4vh;
   border-radius: 30%;
 }
 
 h1 {
   font-size: 3rem;
   text-align: center;
-  background: -webkit-linear-gradient(rgb(36, 19, 19), #333);
+  background: -webkit-linear-gradient(
+    rgb(24, 126, 167),
+    rgba(117, 12, 12, 0.61)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 1.6rem;
+  text-align: center;
+  background: -webkit-linear-gradient(
+    rgb(24, 126, 167),
+    rgba(117, 12, 12, 0.61)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 textarea {
-  font-family: "Press Start 2P", cursive;
-  border: 3px solid black;
+  font-family: "Fredoka One", cursive;
+  font-family: "VT323", monospace;
+  font-size: 1.5rem;
+  border: 5px dashed black;
   width: 90%;
   resize: none;
   margin: 0 auto;
   outline: none;
   height: 20vh;
-  background: linear-gradient(to top right, #d202f61e 10%, #ff660036 95%);
+  background: linear-gradient(to bottom right, #f3f1f30c 30%, #7b8fdd31 95%);
   padding: 1%;
   border-radius: 50px;
+}
+
+.reset {
+  background-color: rgba(143, 68, 68, 0.575);
 }
