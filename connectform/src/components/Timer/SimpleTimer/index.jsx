@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 
 const SimpleTimer = (props) => {
-  const { seconds, isStarted, stopTimer } = props;
-  const [timeRemaining, setTimeRemaining] = useState(seconds);
+  const { seconds, isStarted, stopTimer, timerSubmit, setTimeRemaining } = props
+  // const [timeRemaining, setTimeRemaining] = useState(seconds)
 
   useEffect(() => {
-    if (timeRemaining > 0 && isStarted) {
+    if (seconds > 0 && isStarted) {
       setTimeout(() => {
-        setTimeRemaining((time) => time - 1);
-      }, 1000);
-    } else if (timeRemaining === 0) {
-      stopTimer(false);
+        setTimeRemaining((time) => time - 1)
+      }, 1000)
+    } else if (seconds === 0) {
+      stopTimer(false)
+      timerSubmit()
     }
-  }, [timeRemaining, isStarted]);
+  }, [seconds, isStarted, seconds])
 
   return (
     <div>
-      <h2>Time remaining: {timeRemaining}</h2>
+      <h2>Time remaining: {seconds}</h2>
     </div>
-  );
-};
+  )
+}
 
-export default SimpleTimer;
+export default SimpleTimer

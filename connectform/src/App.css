@@ -57,9 +57,8 @@ button {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
-
   border: none;
-  background: #009af37c;
+  background: #57e70480;
   text-transform: uppercase;
   border-radius: 30%;
 }
@@ -93,14 +92,25 @@ textarea {
   border: 5px dashed black;
   width: 90%;
   resize: none;
-  margin: 0 auto;
+  margin: auto;
   outline: none;
-  height: 20vh;
+  height: 30vh;
   background: linear-gradient(to bottom right, #f3f1f30c 30%, #7b8fdd31 95%);
   padding: 1%;
   border-radius: 50px;
+  margin-top: 30px;
+  position: center;
 }
 
 .reset {
-  background-color: rgba(143, 68, 68, 0.575);
+  background-color: rgba(32, 10, 160, 0.74);
+  color: aliceblue;
+}
+.placeHolder {
+  color: transparent;
+  background: transparent;
+}
+
+.stopButton {
+  background-color: rgba(120, 28, 133, 0.335);
 }
