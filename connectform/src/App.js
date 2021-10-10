@@ -11,6 +11,7 @@ function App() {
   const [stuff, setStuff] = useState("")
   const [swear, setSwear] = useState(1)
   const inputRef = useRef(null)
+  const [normal, setNormal] = useState(true)
   const handleChange = (e) => {
     const { name, value } = e.target
     setValue((oldValue) => value)
@@ -85,32 +86,21 @@ function App() {
 
   const hint = !isStarted ? "Click the START button!" : "Start Typing Now!"
 
-  class Toggle extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state = { isToggleOn: true }
-      this.handleClick = this.handleClick.bind(this)
+  const Toggle = () => {
+    const handleToggle = () => {
+      setNormal(!normal)
     }
-
-    handleClick() {
-      this.setState((prevState) => ({
-        isToggleOn: !prevState.isToggleOn,
-      }))
-    }
-
-    render() {
-      return (
-        <button onClick={this.handleClick}>
-          {this.state.isToggleOn ? "ON" : "OFF"}
-        </button>
-      )
-    }
+    return (
+      <button className="toggle" onClick={handleToggle}>
+        {normal ? "Normal" : "Code Mode"}
+      </button>
+    )
   }
 
   return (
     <div className="App">
       {!isStarted ? <h1>Typing Test</h1> : <h1>Start Typing!</h1>}
-      <MyTypeTest isStarted={isStarted} swear={swear} />
+      <MyTypeTest isStarted={isStarted} normal={normal} />
       {isStarted ? <StopButton /> : <StartButton />}
 
       <textarea
@@ -137,7 +127,8 @@ function App() {
       )}
 
       <PlaceHoldersButton />
-      {!isStarted ? <ResetButton /> : <></>}
+      {!isStarted ? <ResetButton /> : <>{/* <Badge /> */}</>}
+      <Toggle />
     </div>
   )
 }

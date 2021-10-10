@@ -131,6 +131,15 @@ textarea {
   margin-top: 30px;
 }
 
-/* .inputBox {
-  font-family: "Rubik Beastly", cursive;
-} */
+.toggle {
+  font-family: "Press Start 2P", cursive;
+  background: -webkit-linear-gradient(
+    rgb(24, 126, 167),
+    rgba(117, 12, 12, 0.61)
+  );
+  color: aliceblue;
+}
+.typeWrapper {
+  width: 70%;
+  margin: auto;
+}

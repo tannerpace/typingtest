@@ -4,30 +4,16 @@ import Typewriter from "typewriter-effect"
 // const Words = English.join(" ")
 // console.log(`English`, English)
 // console.log(`Words`, Words)
-const MyTypeTest = (props, Words) => {
+const MyTypeTest = (props) => {
   // const [stuff, setStuff] = useState(Words)
-  const { isStarted, swear } = props
+  const { isStarted, normal } = props
 
-  // let text = stuff.toString().replace(/,/g, " ")
-  // Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.
+  const getRandomInt = (max) => {
+    return Math.floor(Math.random() * max)
+  }
+
   const English = [
-    "I",
-    "his",
-    "they",
-    "be",
-    "at",
-    "one",
-    "have",
-    "this",
-    "from",
-    "or",
-    "had",
-    "by",
-    "not",
-    "word",
-    "but",
-    "what",
-    "some",
+    "Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.",
     "we",
     "can",
     "out",
@@ -950,18 +936,86 @@ const MyTypeTest = (props, Words) => {
     "neck",
   ]
 
+  const Code = [
+    "import { useTransition } from 'react'",
+    "const [isPending, startTransition] = useTransition();",
+    "startTransition(()",
+    "=>",
+    "{isPending && <Spinner />}",
+    "setSearchQuery",
+    "(",
+    "he",
+    ");",
+    "state",
+    "}",
+    ")",
+    "let",
+    "i",
+    "=",
+    "0",
+    "i<0",
+    "function App()",
+    "{",
+    "const",
+    "[count",
+    "setCount] =",
+    "useState(0);",
+    "const [flag, setFlag] = useState(false);",
+    "if(true)",
+    "{let seconds = input}",
+    "{arr.map(x=>return(<div>{x.name}</div>))}",
+    "my mama told me to",
+    "  handleChange(e),",
+    "setState({ value: e.target.value });",
+    "state",
+    "= { value: 'Hello, **world**!' };",
+    "return",
+    "(",
+    "<div>",
+    "<button onClick={handleClick}>Next</button>",
+    "<h1 style={{ color: flag ? blue : black }}>{count}</h1>",
+    "</div>",
+    ");",
+    "}",
+  ]
+
+  // const RandomText = English.slice(getRandomInt(20))
+  // const RandomCode = Code.slice(getRandomInt(20))
+
+  let text = English.toString().replace(/,/g, " ")
+  let codeStyle = Code.toString().replace(/,/g, " ")
   return (
     <>
-      {isStarted ? (
+      {isStarted && normal ? (
         <>
-          <Typewriter
-            options={{
-              strings: English,
-              autoStart: true,
-              loop: false,
-              changeDelay: 1,
-            }}
-          />
+          <div className="typeWrapper">
+            <Typewriter
+              options={{
+                strings: text,
+                autoStart: true,
+                pauseFor: 0,
+                loop: false,
+                changeDelay: 1,
+              }}
+            />
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
+      {isStarted && !normal ? (
+        <>
+          <div className="typeWrapper">
+            <Typewriter
+              options={{
+                strings: codeStyle,
+                autoStart: true,
+                pauseFor: 0,
+                loop: false,
+                changeDelay: 1,
+              }}
+            />
+          </div>
         </>
       ) : (
         <></>
