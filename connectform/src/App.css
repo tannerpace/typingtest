@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Monofett&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Monofett&family=Open+Sans:wght@400;600&family=Press+Start+2P&family=Roboto+Slab&family=Rubik+Beastly&display=swap"):
-  : -webkit-scrollbar {
+@import url("https://fonts.googleapis.com/css2?family=Monofett&family=Open+Sans:wght@400;600&family=Press+Start+2P&family=Roboto+Slab&family=Rubik+Beastly&display=swap");
+:-webkit-scrollbar {
   width: 20px;
 }
 
@@ -80,7 +81,6 @@ h1 {
 }
 
 h2 {
-  margin-top: -50px;
   font-family: "Monofett", cursive;
   font-size: 1.6rem;
   text-align: center;
@@ -93,7 +93,6 @@ h2 {
 }
 
 textarea {
-  font-family: "Fredoka One", cursive;
   font-family: "VT323", monospace;
   font-size: 1.5rem;
   border: 5px dashed black;
@@ -105,13 +104,13 @@ textarea {
   background: linear-gradient(to bottom right, #f3f1f30c 30%, #7b8fdd31 95%);
   padding: 1%;
   border-radius: 50px;
-  margin-top: 30px;
+
   position: center;
   text-align: center;
 }
 
 .reset {
-  font-family: "Rubik Beastly", cursive;
+  font-family: "Press Start 2P", cursive;
   background-color: rgba(117, 12, 12, 0.61);
   color: rgb(24, 126, 167);
 }
@@ -124,3 +123,14 @@ textarea {
   font-family: "Rubik Beastly", cursive;
   background-color: rgba(120, 28, 133, 0.335);
 }
+
+.startButton {
+  font-family: "Press Start 2P", cursive;
+  background-color: rgba(120, 28, 133, 0.335);
+  margin-bottom: 33px;
+  margin-top: 30px;
+}
+
+/* .inputBox {
+  font-family: "Rubik Beastly", cursive;
+} */

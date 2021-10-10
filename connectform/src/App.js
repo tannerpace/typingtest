@@ -24,6 +24,7 @@ function App() {
   const handleStop = () => {
     handleSubmit()
     setIsStarted((isStarted) => !isStarted)
+    setSeconds(60)
     inputRef.current.disabled = true
   }
   const handleSubmit = (event) => {
@@ -42,6 +43,14 @@ function App() {
     eraseText()
   }
 
+  // const setDisabled = () => {
+  //   if (seconds < 1) {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // }
+
   const ResetButton = () => {
     return (
       <button className="reset" onClick={handleReset}>
@@ -51,9 +60,18 @@ function App() {
   }
 
   const StartButton = () => {
-    return <button onClick={handleStart}>Start</button>
+    return (
+      <button
+        className="startButton"
+        onClick={handleStart}
+        // disabled={setDisabled}
+      >
+        Start
+      </button>
+    )
   }
   const StopButton = () => {
+    // setSeconds(60)
     return (
       <button className="stopButton" onClick={handleStop}>
         Stop
@@ -92,10 +110,11 @@ function App() {
   return (
     <div className="App">
       {!isStarted ? <h1>Typing Test</h1> : <h1>Start Typing!</h1>}
-      {isStarted ? <StopButton /> : <StartButton />}
       <MyTypeTest isStarted={isStarted} swear={swear} />
+      {isStarted ? <StopButton /> : <StartButton />}
 
       <textarea
+        className="inputBox"
         id="test"
         onChange={handleChange}
         disabled={!isStarted}
@@ -111,10 +130,12 @@ function App() {
           setTimeRemaining={(x) => setSeconds(x)}
         />
       ) : (
-        <></>
+        <>
+          {" "}
+          <h2>Word Count : {wordCount}</h2>
+        </>
       )}
-      <PlaceHoldersButton />
-      <h2>Word Count : {wordCount}</h2>
+
       <PlaceHoldersButton />
       {!isStarted ? <ResetButton /> : <></>}
     </div>
