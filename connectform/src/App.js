@@ -1,5 +1,5 @@
 import "./App.css"
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import SimpleTimer from "./components/Timer/SimpleTimer"
 import MyTypeTest from "./components/MyTypeTest"
 
@@ -9,7 +9,8 @@ function App() {
   const [isStarted, setIsStarted] = useState(false)
   const [seconds, setSeconds] = useState(60)
   const [stuff, setStuff] = useState("")
-
+  const [swear, setSwear] = useState(1)
+  const inputRef = useRef(null)
   const handleChange = (e) => {
     const { name, value } = e.target
     setValue((oldValue) => value)
@@ -17,14 +18,17 @@ function App() {
 
   const handleStart = () => {
     setIsStarted((isStarted) => !isStarted)
+    inputRef.current.disabled = false
+    inputRef.current.focus()
   }
   const handleStop = () => {
     if (isStarted) {
       handleSubmit()
+      inputRef.current.disabled = true
     }
     setIsStarted((isStarted) => !isStarted)
   }
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
     if (value === "") {
       return
     }
@@ -36,7 +40,6 @@ function App() {
   }
   const handleReset = () => {
     setSeconds(60)
-
     setWordCount(0)
     eraseText()
   }
@@ -66,11 +69,42 @@ function App() {
 
   const hint = !isStarted ? "Click the START button!" : "Start Typing Now!"
 
-  console.log(stuff)
+  class Toggle extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = { isToggleOn: true }
+
+      // This binding is necessary to make `this` work in the callback
+      this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick() {
+      this.setState((prevState) => ({
+        isToggleOn: !prevState.isToggleOn,
+      }))
+    }
+
+    render() {
+      return (
+        <button onClick={this.handleClick}>
+          {this.state.isToggleOn ? "ON" : "OFF"}
+        </button>
+      )
+    }
+  }
+
   return (
     <div className="App">
       {!isStarted ? <h1>Typing Test</h1> : <h1>Start Typing!</h1>}
-      <MyTypeTest isStarted={isStarted} />
+      {/* {!isStarted ? (
+        <h2>
+          <label>Swear Words</label>
+          <Toggle onClick={() => setSwear(!swear)}></Toggle>
+        </h2>
+      ) : (
+        <></>
+      )} */}
+      <MyTypeTest isStarted={isStarted} swear={swear} />
       <SimpleTimer
         seconds={`${seconds}`}
         isStarted={isStarted}
@@ -87,6 +121,7 @@ function App() {
         onChange={handleChange}
         disabled={!isStarted}
         placeholder={hint}
+        ref={inputRef}
       />
 
       <h2>Word Count : {wordCount}</h2>

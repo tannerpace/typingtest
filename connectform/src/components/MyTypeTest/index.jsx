@@ -3,10 +3,10 @@ import Typewriter from "typewriter-effect"
 
 const MyTypeTest = (props) => {
   const [stuff, setStuff] = useState("")
-  const { isStarted } = props
+  const { isStarted, swear } = props
 
   useEffect(() => {
-    fetch(`https://random-word-api.herokuapp.com/word?number=10`)
+    fetch(`https://random-word-api.herokuapp.com/word?number=100`)
       .then((response) => response.json())
       .then((data) => {
         setStuff(data)
