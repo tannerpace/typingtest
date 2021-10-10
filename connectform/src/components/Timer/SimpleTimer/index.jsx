@@ -2,15 +2,13 @@ import React, { useState, useEffect } from "react"
 
 const SimpleTimer = (props) => {
   const { seconds, isStarted, stopTimer, timerSubmit, setTimeRemaining } = props
-  // const [timeRemaining, setTimeRemaining] = useState(seconds)
 
   useEffect(() => {
     if (seconds > 0 && isStarted) {
       setTimeout(() => {
         setTimeRemaining((time) => time - 1)
       }, 1000)
-    } else if (seconds === 0) {
-      stopTimer(false)
+    } else if (seconds < 1) {
       timerSubmit()
     }
   }, [seconds, isStarted, seconds])

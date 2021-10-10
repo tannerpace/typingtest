@@ -22,11 +22,9 @@ function App() {
     inputRef.current.focus()
   }
   const handleStop = () => {
-    if (isStarted) {
-      handleSubmit()
-      inputRef.current.disabled = true
-    }
+    handleSubmit()
     setIsStarted((isStarted) => !isStarted)
+    inputRef.current.disabled = true
   }
   const handleSubmit = (event) => {
     if (value === "") {
@@ -73,8 +71,6 @@ function App() {
     constructor(props) {
       super(props)
       this.state = { isToggleOn: true }
-
-      // This binding is necessary to make `this` work in the callback
       this.handleClick = this.handleClick.bind(this)
     }
 
@@ -96,25 +92,8 @@ function App() {
   return (
     <div className="App">
       {!isStarted ? <h1>Typing Test</h1> : <h1>Start Typing!</h1>}
-      {/* {!isStarted ? (
-        <h2>
-          <label>Swear Words</label>
-          <Toggle onClick={() => setSwear(!swear)}></Toggle>
-        </h2>
-      ) : (
-        <></>
-      )} */}
+      {isStarted ? <StopButton /> : <StartButton />}
       <MyTypeTest isStarted={isStarted} swear={swear} />
-      <SimpleTimer
-        seconds={`${seconds}`}
-        isStarted={isStarted}
-        stopTimer={(x) => setIsStarted(x)}
-        timerSubmit={() => handleSubmit()}
-        setTimeRemaining={(x) => setSeconds(x)}
-      />
-
-      {!isStarted ? <StartButton /> : <StopButton />}
-      {!isStarted ? <ResetButton /> : <PlaceHoldersButton />}
 
       <textarea
         id="test"
@@ -123,8 +102,21 @@ function App() {
         placeholder={hint}
         ref={inputRef}
       />
-
+      {isStarted ? (
+        <SimpleTimer
+          seconds={seconds}
+          isStarted={isStarted}
+          stopTimer={(x) => setIsStarted(x)}
+          timerSubmit={() => handleStop()}
+          setTimeRemaining={(x) => setSeconds(x)}
+        />
+      ) : (
+        <></>
+      )}
+      <PlaceHoldersButton />
       <h2>Word Count : {wordCount}</h2>
+      <PlaceHoldersButton />
+      {!isStarted ? <ResetButton /> : <></>}
     </div>
   )
 }

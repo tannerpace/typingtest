@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=VT323&display=swap");
-::-webkit-scrollbar {
+
+@import url("https://fonts.googleapis.com/css2?family=Monofett&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monofett&family=Open+Sans:wght@400;600&family=Press+Start+2P&family=Roboto+Slab&family=Rubik+Beastly&display=swap"):
+  : -webkit-scrollbar {
   width: 20px;
 }
 
@@ -64,6 +67,8 @@ button {
 }
 
 h1 {
+  margin-top: 1px;
+  font-family: "Monofett", cursive;
   font-size: 3rem;
   text-align: center;
   background: -webkit-linear-gradient(
@@ -75,6 +80,8 @@ h1 {
 }
 
 h2 {
+  margin-top: -50px;
+  font-family: "Monofett", cursive;
   font-size: 1.6rem;
   text-align: center;
   background: -webkit-linear-gradient(
@@ -104,8 +111,9 @@ textarea {
 }
 
 .reset {
-  background-color: rgba(32, 10, 160, 0.74);
-  color: aliceblue;
+  font-family: "Rubik Beastly", cursive;
+  background-color: rgba(117, 12, 12, 0.61);
+  color: rgb(24, 126, 167);
 }
 .placeHolder {
   color: transparent;
@@ -113,5 +121,6 @@ textarea {
 }
 
 .stopButton {
+  font-family: "Rubik Beastly", cursive;
   background-color: rgba(120, 28, 133, 0.335);
 }
