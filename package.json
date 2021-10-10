@@ -1,7 +1,10 @@
 {
-  "name": "connectform",
+  "name": "typingtest",
+  "homepage": "https://tannerpace.github.io/TypingTest",
   "version": "0.1.0",
   "private": true,
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
